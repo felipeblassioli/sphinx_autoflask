@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sphinxcontrib-httpdomain-acceptancetest 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="None" href="index.html#document-index" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">sphinxcontrib-httpdomain-acceptancetest 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="autoflask">
+<h1>Autoflask<a class="headerlink" href="#autoflask" title="Permalink to this headline">¶</a></h1>
+<p>xxx <a class="reference external" href="#haha/">Python</a>.</p>
+<p>Services:</p>
+<ul class="simple">
+<li><a class="reference external" href="#get--info-log-">GET /info/log/:</a></li>
+<li><a class="reference external" href="#get--info-map-">GET /info/map/:</a></li>
+<li><a class="reference external" href="#post--login-">POST /login/:</a></li>
+<li><a class="reference external" href="#post--map-">POST /map/:</a></li>
+<li><a class="reference external" href="#get--product-">GET /product/:</a></li>
+<li><a class="reference external" href="#post--product-">POST /product/:</a></li>
+<li><a class="reference external" href="#get--product-best-">GET /product/best/:</a></li>
+<li><a class="reference external" href="#post--product-map-">POST /product/map/:</a></li>
+<li><a class="reference external" href="#get--static-(path-filename)">GET /static/(path:filename):</a></li>
+<li><a class="reference external" href="#post--sync-">POST /sync/:</a></li>
+<li><a class="reference external" href="#get--sync-favorites-">GET /sync/favorites/:</a></li>
+<li><a class="reference external" href="#get--sync-tokens-">GET /sync/tokens/:</a></li>
+</ul>
+<dl class="get">
+<dt id="get--product-best-">
+<tt class="descname">GET </tt><tt class="descname">/product/best/</tt><a class="headerlink" href="#get--product-best-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a set of recommended products based on the parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>product_id</strong> (<em>int</em>) &#8211; None.</li>
+<li><strong>limit</strong> (<em>int</em>) &#8211; <em>(optional)</em> max products count.. <a href="#id1"><span class="problematic" id="id2">*</span></a>Default*=5</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="post">
+<dt id="post--product-map-">
+<tt class="descname">POST </tt><tt class="descname">/product/map/</tt><a class="headerlink" href="#post--product-map-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a set of nearest stores&#8217;s geocod_data with product quantity in each stores for each product in array &#8216;ids&#8217;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ids</strong> (<em>unicode</em>) &#8211; None.</li>
+<li><strong>location</strong> (<em>object</em>) &#8211; <em>(optional)</em> {&#8220;lat&#8221;: double, &#8220;lng&#8221;: double} . Position for which nearest stores are calculated. If none is given, returns all stores.. <a href="#id3"><span class="problematic" id="id4">*</span></a>Default*={&#8216;lat&#8217;: None, &#8216;lng&#8217;: None}</li>
+<li><strong>radius</strong> (<em>float</em>) &#8211; <em>(optional)</em> Returns only stores within given radius. Location must be specified.. <a href="#id5"><span class="problematic" id="id6">*</span></a>Default*=10.0</li>
+<li><strong>limit</strong> (<em>int</em>) &#8211; <em>(optional)</em> Returns an array with maximum row count given by limit. In this case, location must be specified.. <a href="#id7"><span class="problematic" id="id8">*</span></a>Default*=None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--sync-favorites-">
+<tt class="descname">GET </tt><tt class="descname">/sync/favorites/</tt><a class="headerlink" href="#get--sync-favorites-" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--sync-tokens-">
+<tt class="descname">GET </tt><tt class="descname">/sync/tokens/</tt><a class="headerlink" href="#get--sync-tokens-" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--info-log-">
+<tt class="descname">GET </tt><tt class="descname">/info/log/</tt><a class="headerlink" href="#get--info-log-" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--info-map-">
+<tt class="descname">GET </tt><tt class="descname">/info/map/</tt><a class="headerlink" href="#get--info-map-" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--product-">
+<tt class="descname">GET </tt><tt class="descname">/product/</tt><a class="headerlink" href="#get--product-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a set of products that match the query criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>q</strong> (<em>unicode</em>) &#8211; query criteria. Example: q=tv+samsung.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="post">
+<dt id="post--product-">
+<tt class="descname">POST </tt><tt class="descname">/product/</tt><a class="headerlink" href="#post--product-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return product details.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ids</strong> (<em>int</em>) &#8211; jsonArray of Product.id_sku (PRP).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="post">
+<dt id="post--login-">
+<tt class="descname">POST </tt><tt class="descname">/login/</tt><a class="headerlink" href="#post--login-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs In the user and returns a session token which is used on other services. See Authentication.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>uid</strong> (<em>unicode</em>) &#8211; unique identification of user mobile device (Android Serial Number / MAC address).</li>
+<li><strong>cpf</strong> (<em>unicode</em>) &#8211; <em>(optional)</em> None. <a href="#id9"><span class="problematic" id="id10">*</span></a>Default*=None</li>
+<li><strong>facebook_data</strong> (<em>object</em>) &#8211; <em>(optional)</em> jsonObject: {access_token}. <a href="#id11"><span class="problematic" id="id12">*</span></a>Default*=None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="post">
+<dt id="post--sync-">
+<tt class="descname">POST </tt><tt class="descname">/sync/</tt><a class="headerlink" href="#post--sync-" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>favorites</strong> (<em>unicode</em>) &#8211; <em>(optional)</em> None. <a href="#id13"><span class="problematic" id="id14">*</span></a>Default*=None</li>
+<li><strong>tokens</strong> (<em>unicode</em>) &#8211; <em>(optional)</em> None. <a href="#id15"><span class="problematic" id="id16">*</span></a>Default*=None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="post">
+<dt id="post--map-">
+<tt class="descname">POST </tt><tt class="descname">/map/</tt><a class="headerlink" href="#post--map-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a set with coordinates of the closest physical shops.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li><strong>location</strong> (<em>object</em>) &#8211; None.</li>
+<li><strong>radius</strong> (<em>int</em>) &#8211; <em>(optional)</em> None. <a href="#id17"><span class="problematic" id="id18">*</span></a>Default*=10</li>
+<li><strong>limit</strong> (<em>int</em>) &#8211; <em>(optional)</em> None. <a href="#id19"><span class="problematic" id="id20">*</span></a>Default*=4</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">sphinxcontrib-httpdomain-acceptancetest 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, SHIBUKAWA Yoshiki.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
