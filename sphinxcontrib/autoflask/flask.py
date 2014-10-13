@@ -26,6 +26,8 @@ from sphinx.pycode import ModuleAnalyzer
 from sphinxcontrib import httpdomain
 from sphinxcontrib.autohttp.common import http_directive, import_object
 
+import inspect 
+
 def sort_by_method(entries):
     def cmp(item):
         order = ['HEAD', 'GET', 'POST', 'PUT', 'DELETE', 'PATCH',
@@ -162,9 +164,13 @@ class AutoflaskDirective(Directive):
                 view_cls, view_func = endpoint.split(":")
                 if hasattr(app, 'view_classes') and view_cls in app.view_classes:
                     cls = app.view_classes[view_cls]
+                    members = inspect.getmembers(cls,predicate=inspect.ismethod)
                     if hasattr(cls,'args_rules'):
                         rules = cls.args_rules
                         if view_func in rules:
+                            for m in members:
+                                if m[0] == view_func:
+                                    docstring += m[1].__doc__.strip()
                             docstring += '\n\n'
                             for a in rules[view_func]:
                                 t = str(a.type).replace('type','').replace("'","").replace('<','').replace('>','')

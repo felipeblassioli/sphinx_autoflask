@@ -4,6 +4,6 @@ Autoflask
 xxx `Python <#haha/>`_.
 
 
-.. autoflask:: pontofrio:app
+.. autoflask:: frp:app
    :undoc-static:
    :include-empty-docstring:
